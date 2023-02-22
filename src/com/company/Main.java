@@ -13,14 +13,14 @@ public class Main {
         extracted(vector);
     }
 
-    private static void extracted1(int[] vector) {
+    public static void extracted1(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
             if (i%10==0) System.out.println();
             System.out.print(i+1+"\t");
         }
     }
 
-    private static void extracted(int[] vector) {
+    public static void extracted(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
             if (i%10==0) System.out.println();
             System.out.print(vector[i]+"\t");
@@ -64,7 +64,7 @@ public class Main {
         }
     }
 
-    private static int getCuenta(int dim, boolean[] esPrimo) {
+    public static int getCuenta(int dim, boolean[] esPrimo) {
         int i;
         int cuenta = 0;
         for (i=0; i< dim; i++) {
