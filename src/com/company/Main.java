@@ -7,17 +7,26 @@ public class Main {
         int dato=teclado.nextInt();
         int vector[]=new int[dato];
         System.out.println("\nVector inicial hasta :"+dato);
+        extracted1(vector);
+        vector=generarPrimos(dato);
+        System.out.println("\nVector de primos hasta:"+dato);
+        extracted(vector);
+    }
+
+    private static void extracted1(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
             if (i%10==0) System.out.println();
             System.out.print(i+1+"\t");
         }
-        vector=generarPrimos(dato);
-        System.out.println("\nVector de primos hasta:"+dato);
+    }
+
+    private static void extracted(int[] vector) {
         for (int i = 0; i < vector.length; i++) {
             if (i%10==0) System.out.println();
             System.out.print(vector[i]+"\t");
         }
     }
+
     // Generar números primos de 1 a max
     public static int[] generarPrimos (int max)
     {
@@ -41,11 +50,7 @@ public class Main {
                 }
             }
             // ¿Cuántos primos hay?
-            int cuenta = 0;
-            for (i=0; i<dim; i++) {
-                if (esPrimo[i])
-                    cuenta++;
-            }
+            int cuenta = getCuenta(dim, esPrimo);
             // Rellenar el vector de números primos
             int[] primos = new int[cuenta];
             for (i=0, j=0; i<dim; i++) {
@@ -57,5 +62,15 @@ public class Main {
             return new int[0];
             // Vector vacío
         }
+    }
+
+    private static int getCuenta(int dim, boolean[] esPrimo) {
+        int i;
+        int cuenta = 0;
+        for (i=0; i< dim; i++) {
+            if (esPrimo[i])
+                cuenta++;
+        }
+        return cuenta;
     }
 }
